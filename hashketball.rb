@@ -250,7 +250,6 @@ def winning_team
              else
                binding.pry
                team_2 += data_item[:points]
-             end
             end
           end
         end
