@@ -208,7 +208,6 @@ def player_stats(player)
         data.each do |data_item|
           if data_item.kind_of?(Hash)
             if data_item[:player_name] == player
-              binding.pry
               return data_item
             end
           end
