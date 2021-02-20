@@ -200,3 +200,20 @@ def player_numbers(teamname)
   end
   team_players
 end
+
+def player_stats(player)
+  player_stat = game_hash.each do |location, information|
+    information.each do |team, data|
+      if data.kind_of?(Array) 
+        data.each do |data_item|
+          if data_item.kind_of?(Hash)
+            if data_item[:player_name] == player
+              binding.pry
+              return data_item
+            end
+          end
+        end
+      end
+    end
+  end
+end
