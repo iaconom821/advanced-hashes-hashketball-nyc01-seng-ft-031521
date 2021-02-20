@@ -255,7 +255,6 @@ def winning_team
       end
     end
   end
-  binding.pry
   if team_1 > team_2
     return 'Charlotte Hornets'
   else
