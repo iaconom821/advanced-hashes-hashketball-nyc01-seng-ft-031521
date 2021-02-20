@@ -245,7 +245,7 @@ def winning_team
       if data.kind_of?(Array) 
         data.each do |data_item|
           if data_item.kind_of?(Hash)
-             if information[:team_name] = 'Brooklyn Nets'
+             if information[:team_name] != 'Brooklyn Nets'
                team_1 += data_item[:points]
              else
                binding.pry
