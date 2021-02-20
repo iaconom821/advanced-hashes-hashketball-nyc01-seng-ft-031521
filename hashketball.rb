@@ -238,26 +238,32 @@ def most_points_scored
 end
 
 def winning_team
-   = 0 
-  win_team = 0
+  team_1 = 0 
+  team_2 = 0
   game_hash.each do |location, information|
     information.each do |team, data|
       if data.kind_of?(Array) 
         data.each do |data_item|
           if data_item.kind_of?(Hash)
-            if data_item[:points] > most_points
-              most_points = data_item[:points]
-              player = data_item[:player_name]
+             if information[:team_name] = 'Brooklyn Nets'
+               team_1 += data_item[:points]
+             else
+               team_2 += data_item[:points]
             end
           end
         end
       end
     end
   end
-  player 
+  binding.pry
+  if team_1 > team_2
+    return team_1
+  else
+    return team_2
+  end
 end
 
-
+winning_team
 
 def big_shoe_rebounds
   big_shoe = 0 
