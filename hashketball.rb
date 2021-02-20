@@ -1,4 +1,6 @@
 # Write your code below game_hash
+require 'pry' 
+
 def game_hash
   {
     home: {
@@ -127,3 +129,74 @@ def game_hash
 end
 
 # Write code here
+
+
+def num_points_scored(player)
+  game_hash.each do |location, information|
+    information.each do |team, data|
+      if data.kind_of?(Array) 
+        data.each do |data_item|
+          if data_item.kind_of?(Hash)
+            if data_item[:player_name] == player
+              return data_item[:points]
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
+def shoe_size(player)
+  game_hash.each do |location, information|
+    information.each do |team, data|
+      if data.kind_of?(Array) 
+        data.each do |data_item|
+          if data_item.kind_of?(Hash)
+            if data_item[:player_name] == player
+              return data_item[:shoe]
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
+def team_colors(team)
+  game_hash.each do |location, information|
+    information.each do |team_info, data|
+      if data.kind_of?(Array) 
+        data.each do |data_item|
+          if information[:team_name] == team
+            return data 
+          end 
+        end
+      end
+    end
+  end
+end
+
+def team_names
+  team_names_array = game_hash.each_with_object([]) do |(location, information), team_names_array|
+    team_names_array.append(information[:team_name])
+  end
+  team_names_array
+end
+
+def player_numbers(teamname)
+  team_players = game_hash.each_with_object([]) do |(location, information), team_players|
+    information.each do |team, data|
+      if data.kind_of?(Array) 
+        data.each do |data_item|
+          if data_item.kind_of?(Hash)
+            if information[:team_name] == teamname
+              team_players.append(data_item[:number])
+            end
+          end
+        end
+      end
+    end
+  end
+  team_players
+end
