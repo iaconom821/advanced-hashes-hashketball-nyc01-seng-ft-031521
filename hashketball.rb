@@ -248,7 +248,6 @@ def winning_team
              if information[:team_name] != 'Brooklyn Nets'
                team_1 += data_item[:points]
              else
-               binding.pry
                team_2 += data_item[:points]
             end
           end
